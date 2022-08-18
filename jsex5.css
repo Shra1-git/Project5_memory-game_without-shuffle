@@ -1,0 +1,26 @@
+.myblock{
+    height: 150px;
+    width: 150px;
+    border: 1px solid white;
+    background-color: green;
+    margin: 3px;
+    display: inline-block;
+    z-index : 1;
+    position:fixed;
+}
+
+#pic1{
+    z-index: -1;
+    position: relative;
+    margin: 3px;
+}
+#pic2{
+    z-index: -1;
+    position: relative;
+    margin: 3px;
+}
+#pic3{
+    z-index: -1;
+    position: relative;
+    margin: 3px;
+}

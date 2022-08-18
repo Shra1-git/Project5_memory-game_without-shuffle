@@ -1,0 +1,110 @@
+<html>
+    <head>
+         <title>Puzzle Game</title>
+        <link rel="stylesheet" href="jsex5.css">
+         
+    </head>
+    <body>
+        <center><h1>Memory Game - without Shuffle- Two cards</h1><br><br>
+                <div id="allcontent"><center><div><span class="myblock"></span><img src="J6pic1.jpg" height=150px width= 150px id="pic1"><span class="myblock"></span><img src="J6pic2.jpg" height=150px width= 150px id="pic2"><span class="myblock"></span><img src="J6pic1.jpg" height=150px width= 150px id="pic1"></div>
+                                  <div><span class="myblock"></span><img src="J6pic3.jpg" height=150px width= 150px id="pic3"><span class="myblock"></span><img src="J6pic2.jpg" height=150px width= 150px id="pic2"><span class="myblock"></span><img src="J6pic3.jpg" height=150px width= 150px id="pic3"></div></center>
+        <br><br><br><br><br></div>Score: <span id="score"></span></div>
+        <div>Failed Attempts: <span id="attempts"></span></div> 
+    </body>
+    <script>
+   
+        myblock0= document.getElementsByClassName("myblock")[0];
+        myblock1= document.getElementsByClassName("myblock")[1];
+        myblock2= document.getElementsByClassName("myblock")[2];
+        myblock3= document.getElementsByClassName("myblock")[3];
+        myblock4= document.getElementsByClassName("myblock")[4];
+        myblock5= document.getElementsByClassName("myblock")[5];
+        var clicks=0;
+        var fail=0;
+        var pass=0;
+
+        score= document.getElementById("score");
+        fattempts = document.getElementById("attempts");
+        //myimg = document.getElementById("pic1");
+       
+        myblock0.onclick = function(){
+            myblock0.style.display = 'none';  
+             setTimeout(function(){afteclick()},1000); 
+             //timein;
+            //clearTimeout(timein);
+            //return false;
+            //afteclick();
+        }
+        myblock1.onclick = function(){
+            myblock1.style.display = 'none';    
+           setTimeout(function(){afteclick()},1000);  
+            //return false;
+            //afteclick();
+        }
+        myblock2.onclick = function(){
+            myblock2.style.display = 'none';
+           // timein = setTimeout(function(){afteclick()},1000); 
+           // timein;
+            //clearTimeout(timein);
+            setTimeout(function(){afteclick()},1000);  
+            //return false;
+            //afteclick();
+            
+        }     
+        myblock3.onclick = function(){
+            myblock3.style.display = 'none';
+            setTimeout(function(){afteclick()},1000);  
+            //return false;
+            //afteclick();      
+        }
+        myblock4.onclick = function(){
+            myblock4.style.display = 'none';  
+           setTimeout(function(){afteclick()},1000);  
+            //return false;
+            //afteclick();
+        }
+        myblock5.onclick = function(){
+            myblock5.style.display = 'none';
+            setTimeout(function(){afteclick()},1000);  
+            //return false;
+            //afteclick();     
+        }
+        function afteclick(){
+            
+            clicks++;
+            if(clicks%2==0){
+                if((myblock0.style.display == 'none' && myblock2.style.display == 'none') || (myblock1.style.display == 'none' && myblock4.style.display == 'none') || (myblock3.style.display == 'none' && myblock5.style.display == 'none')) {
+                    pass++;
+                    score.innerHTML = pass;
+                    //setTimeout(function(){ alert("You scored " + pass + " points"); }, 1000);
+                    confirm("You scored " + pass + " points");
+                    resetvalue(); 
+                    
+                } 
+                  else{
+                    
+                    fail++;
+                    fattempts.innerHTML = fail;
+                    //setTimeout(function(){ alert("You have failed"); }, 1000);
+                    confirm("You have failed");
+                    resetvalue();
+                 
+                } 
+            }
+            
+            
+            return null;  
+        }
+        function resetvalue(){
+            myblock0.style.display = 'inline-block';
+            myblock1.style.display = 'inline-block';
+            myblock2.style.display = 'inline-block';
+            myblock3.style.display = 'inline-block';
+            myblock4.style.display = 'inline-block';
+            myblock5.style.display = 'inline-block';
+
+        }
+        
+    
+    </script>
+</html>
